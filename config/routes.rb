@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :rooms
+
+  resources :floors
+
   devise_for :users
   resources :widgets
 
