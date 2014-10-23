@@ -2,6 +2,10 @@
 
 <p>
   Welcome! Select floor:  
-
+  <%= collection_select(:storey, :id, Storey.all, :id, :name) %>
+<% @storeys.each do |storey| %>
+<div class="storey">
+	<h2><%= link_to storey.name, storey %></h2>
+</div>
+<% end %>
 </p>
-

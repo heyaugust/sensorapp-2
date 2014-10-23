@@ -3,6 +3,12 @@
 <p>
   <strong>Name:</strong>
   <%= @storey.name %>
+  <% @storey.rooms.each do |room| %>
+  	<p>
+  		<b>Room:</b>
+  		<%= room.name %>
+  	</p>
+  	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_storey_path(@storey) %> |

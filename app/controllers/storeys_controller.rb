@@ -8,6 +8,7 @@ class StoreysController < ApplicationController
   end
 
   def show
+    @storey = Storey.find(params[:id])
     respond_with(@storey)
   end
 
