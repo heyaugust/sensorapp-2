@@ -6,11 +6,11 @@
 
 <script>
 $.ready(function() { 
-	$('select').on('change', function() { 
+	$('select').on('change',function() { 
 		var val = $(this).val(); // returns the id 
 		$('.room').hide(); 
 		$('.room[data-storey-id=' + val + ']').show(); 
-	}) 
+	}); 
 })
 </script>
 
@@ -19,7 +19,7 @@ $.ready(function() {
     <tr>
       <th>Room</th>
       <th>Pax</th> 
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -27,10 +27,11 @@ $.ready(function() {
 		
 	<%- Storey.all.each do |storey| %> 
 		<%- storey.rooms.each do |room| %> 
-			<div class='room', data-storey-id="#{storey.id}" style='display:'> 	
+			<div class='room', data-storey-id="#{storey.id}" style='display:none'> 	
 				<tr>
 		         	<td><%= room.name %></td>
 				 	<td><%= room.pax %></td>
+				 	<td><button>Book</button>
 				</tr>
 			</div> 
 		<%- end %> 
