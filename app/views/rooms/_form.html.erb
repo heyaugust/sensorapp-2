@@ -15,6 +15,10 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+    <div class="field">
+    <%= f.label :pax %><br>
+    <%= f.number_field :pax %>
+  </div>
   <div class="field">
     <%= f.label :storey_id %><br>
     <%= collection_select(:room, :storey_id, @storeys, :id, :name, {:prompt => false })  %>

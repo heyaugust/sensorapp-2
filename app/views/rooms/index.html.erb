@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Pax</th>
       <th>Storey</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
     <% @rooms.each do |room| %>
       <tr>
         <td><%= room.name %></td>
+        <td><%= room.pax %></td>
         <td><%= room.storey.name %></td>
         <td><%= link_to 'Show', room %></td>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>

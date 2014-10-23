@@ -11,6 +11,9 @@ class RoomsController < ApplicationController
     respond_with(@room)
   end
 
+  def self.pax
+  end
+  
   def new
     @room = Room.new
     @storeys = Storey.all
@@ -18,6 +21,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @room = Room.find(params[:id])
     @storeys = Storey.all
   end
 
@@ -43,6 +47,6 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-      params.require(:room).permit(:name, :storey_id)
+      params.require(:room).permit(:name, :pax, :storey_id)
     end
 end
