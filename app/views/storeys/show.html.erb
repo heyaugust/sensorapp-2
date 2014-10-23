@@ -1,15 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Storey:</strong>
   <%= @storey.name %>
-  <% @storey.rooms.each do |room| %>
-  	<p>
-  		<b>Room:</b>
-  		<%= room.name %>
-  	</p>
-  	<% end %>
 </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Room</th>
+      <th>Pax</th> 
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @storey.rooms.each do |room| %>
+      <tr>
+        <td><%= room.name %></td>
+        <td><%= room.pax %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_storey_path(@storey) %> |
 <%= link_to 'Back', storeys_path %>
