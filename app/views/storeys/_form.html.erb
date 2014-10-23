@@ -1,10 +1,10 @@
-<%= form_for(@floor) do |f| %>
-  <% if @floor.errors.any? %>
+<%= form_for(@storey) do |f| %>
+  <% if @storey.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@floor.errors.count, "error") %> prohibited this floor from being saved:</h2>
+      <h2><%= pluralize(@storey.errors.count, "error") %> prohibited this storey from being saved:</h2>
 
       <ul>
-      <% @floor.errors.full_messages.each do |message| %>
+      <% @storey.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

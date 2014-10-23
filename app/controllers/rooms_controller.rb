@@ -13,10 +13,12 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @storeys = Storey.all
     respond_with(@room)
   end
 
   def edit
+    @storeys = Storey.all
   end
 
   def create
@@ -41,6 +43,6 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-      params.require(:room).permit(:name)
+      params.require(:room).permit(:name, :storey_id)
     end
 end

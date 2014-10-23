@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :rooms
 
-  resources :floors
+  resources :storeys
 
   devise_for :users
   resources :widgets

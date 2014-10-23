@@ -1,0 +1,25 @@
+<h1>Listing storeys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @storeys.each do |storey| %>
+      <tr>
+        <td><%= storey.name %></td>
+        <td><%= link_to 'Show', storey %></td>
+        <td><%= link_to 'Edit', edit_storey_path(storey) %></td>
+        <td><%= link_to 'Destroy', storey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Storey', new_storey_path %>
