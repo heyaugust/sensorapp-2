@@ -14,3 +14,35 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+ //select storey
+//var paxInput = document.getElementById(); //select pax
+//var displayRoomTaskHolder = document.getElementById("available-rooms"); //room display
+ 
+//Select rooms by levels
+var selectRoom = function() {
+	console.log(storeyInput);
+	var val = $(this).val(); // returns the id 
+	var hideroom = ('.room')	
+		$('.room').hide();
+	$('.room[data-storey-id=' + val + ']').show();
+	//When level is selected
+	//Show rooms in the level by storey_id
+	//Hide rooms in other levels
+}
+
+
+//Sort rooms by pax
+var sortRoom = function() {
+	//When pax is selected
+	//Sort rooms by pax at top
+}
+
+//Book room
+var bookRoom = function() {
+	//When button "book" is pressed
+	//Display "You have booked ('.room'). Enter by:
+	//Display countdown timer from 5mins
+}
+
+
