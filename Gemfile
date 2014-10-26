@@ -30,6 +30,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'will_paginate'
+gem "therubyracer"
+# Read Less
+gem "less-rails"
+# Twitter bootstrap
+gem 'twitter-bootstrap-rails'
 # Data Table 
 # gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 # Use ActiveModel has_secure_password

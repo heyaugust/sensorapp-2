@@ -1,29 +1,45 @@
-<%= form_for(@room) do |f| %>
-  <% if @room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
+<%= form_for @room, :html => { :class => "form-horizontal room" } do |f| %>
 
-      <ul>
-      <% @room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @room.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @room.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@room[:name]) %>
   </div>
-    <div class="field">
-    <%= f.label :pax %><br>
-    <%= f.number_field :pax %>
+  <div class="control-group">
+    <%= f.label :storey_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :storey_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@room[:storey_id]) %>
   </div>
-  <div class="field">
-    <%= f.label :storey_id %><br>
-    <%= collection_select(:room, :storey_id, @storeys, :id, :name, {:prompt => false })  %>
+  <div class="control-group">
+    <%= f.label :pax, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pax, :class => 'form-control' %>
+    </div>
+    <%= error_span(@room[:pax]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            rooms_path, :class => 'btn btn-default' %>
+
 <% end %>
