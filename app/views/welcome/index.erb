@@ -40,19 +40,15 @@
 	<%- end %>
 	</tbody>
 </table>
-
-<div id="timer">
+<div class="mycontainer" id="timer">
+</div> 
 </div>
 
-<div class="storey">
-	<%= link_to 'Storey', storeys_path %>
+<div class="mycontainer">
+<%= link_to 'Storey', storeys_path %>
+<%= link_to 'Room', rooms_path %>
 </div>
-</div>
-<div class="room">
-	<%= link_to 'Room', rooms_path %>
-</div>
-</div>
-</div>
+
 </body>
 
 <script>
@@ -68,5 +64,4 @@ selection.onchange = selectRoom;
 // 	}); 
 // })
 </script>
-
 </html>
