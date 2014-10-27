@@ -34,13 +34,15 @@
 			<tr class='room' data-storey-id='<%= storey.id %>' style='display:'>
 				<td style="vertical-align:middle;"><%= room.name %></td>
 			 	<td style="vertical-align:middle;"><%= room.pax %></td>
-			 	<td style="vertical-align:middle;"><button type="button" class="btn btn-primary" id="book">Book</button></td>
+			 	<td style="vertical-align:middle;"><button type="button" class="btn btn-primary" id='<%= room.name %>' onclick="bookRoom(this.id)">Book</button></td>
 			</tr> 
 		<%- end %> 
 	<%- end %>
-
 	</tbody>
 </table>
+
+<div id="timer">
+</div>
 
 <div class="storey">
 	<%= link_to 'Storey', storeys_path %>

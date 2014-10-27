@@ -19,19 +19,46 @@
  //select storey
 //var paxInput = document.getElementById(); //select pax
 //var displayRoomTaskHolder = document.getElementById("available-rooms"); //room display
- 
+var timer;
+var countdown;
+var countdown_number;
+var timeleft;
+
+
 //Select rooms by levels
 var selectRoom = function() {
 	console.log(storeyInput);
 	var val = $(this).val(); // returns the id 
 	var hideroom = ('.room')	
-		$('.room').hide();
+	$('.room').hide();
 	$('.room[data-storey-id=' + val + ']').show();
 	//When level is selected
 	//Show rooms in the level by storey_id
 	//Hide rooms in other levels
 }
 
+var countdown = function(minutes) {
+	var seconds = 60;
+	var mins = minutes;
+	function tick() {
+		var counter = document.getElementById("timer");
+		var current_minutes = mins - 1;
+		seconds--;
+		counter.innerHTML = "The booking will expire in: " + current_minutes.toString() + ":"+ (seconds < 10 ? "0" : "") + String(seconds);;
+		if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+             
+            if(mins > 1){
+                 
+               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst    
+               setTimeout(function () { countdown(mins - 1); }, 1000);
+                     
+            }
+        }
+    }
+    tick();
+}
 
 //Sort rooms by pax
 var sortRoom = function() {
@@ -40,10 +67,14 @@ var sortRoom = function() {
 }
 
 //Book room
-var bookRoom = function() {
+var bookRoom = function(clicked_id) {
+	$('.room').hide();
+	document.getElementById("available-rooms").innerHTML = "You have booked room: "+clicked_id;
+	countdown(5);
+	
+}
 	//When button "book" is pressed
 	//Display "You have booked ('.room'). Enter by:
 	//Display countdown timer from 5mins
-}
 
 
