@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html>
-<div class="container">
+
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-<div class="panel panel-info">
+<div class="row-fluid">
+	<div class="panel panel-info">
 
 <div class="panel-heading"><h5>
   Welcome! To book room, Select floor:  
   <%= select("storey", "id", Storey.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %></h5>
+</div>
 
+	</div>
 </div>
-</div>
-<table class="table table-striped">
+
+<div class="row-fluid">
+<table class="table">
   <thead>
     <tr>
-      <th class="col.sm-3">Room</th>
-      <th class="col.sm-3">Pax</th> 
-      <th class="col.sm-6"></th>
+      <th>Room</th>
+      <th>Pax</th> 
+      <th></th>
     </tr>
   </thead>
 
 	<tbody id="available-rooms">
-	<div class="container container-xs-height">	
 	<%- Storey.all.each do |storey| %> 
 		<%- storey.rooms.each do |room| %> 
 			<tr class='room' data-storey-id='<%= storey.id %>' style='display:'>
 				<td style="vertical-align:middle;"><%= room.name %></td>
 			 	<td style="vertical-align:middle;"><%= room.pax %></td>
-			 	<td style="vertical-align:middle;"><button type="button" class="btn btn-primary" id="book">Book</button>
+			 	<td style="vertical-align:middle;"><button type="button" class="btn btn-primary" id="book">Book</button></td>
 			</tr> 
 		<%- end %> 
 	<%- end %>
-	      </div>
+
 	</tbody>
 </table>
-
 
 <div class="storey">
 	<%= link_to 'Storey', storeys_path %>
 </div>
-
+</div>
 <div class="room">
 	<%= link_to 'Room', rooms_path %>
 </div>
-
-</p>
-
+</div>
+</div>
 </body>
 
 <script>
@@ -64,5 +66,5 @@ selection.onchange = selectRoom;
 // 	}); 
 // })
 </script>
-</div>
+
 </html>

@@ -469,6 +469,9 @@
     line-height: 0;
     content: "";
   }
+  .mycontainer {
+    width: 100%;
+  }
   .row:after {
     clear: both;
   }
@@ -810,6 +813,9 @@
     margin-right: -20px;
     margin-left: -20px;
   }
+  .mycontainer {
+    width: 100%;
+  }
   .container-fluid {
     padding: 0;
   }
@@ -823,7 +829,7 @@
     margin-left: 0;
   }
   .container {
-    width: auto;
+    width: 724px;
   }
   .row-fluid {
     width: 100%;
@@ -905,6 +911,9 @@
     display: block;
     line-height: 20px;
   }
+  .mycontainer {
+    width: 100%;
+  }
   input[type="checkbox"],
   input[type="radio"] {
     border: 1px solid #ccc;
@@ -952,6 +961,10 @@
 @media (max-width: 979px) {
   body {
     padding-top: 0;
+  }
+  .mycontainer {
+    width: 100%;
+
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom {
@@ -1105,5 +1118,9 @@
   .nav-collapse.collapse {
     height: auto !important;
     overflow: visible !important;
+  }
+  .mycontainer {
+    width: 900px;
+    margin: 0 auto;
   }
 }
