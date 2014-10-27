@@ -3,14 +3,13 @@
 <div class="container">
 <head>
 	<meta charset="utf-8">
-	<h1>Sensor App</h1>
 </head>
 
 <body>
 <div class="panel panel-info">
 
 <div class="panel-heading"><h5>
-  Welcome! Select floor:  
+  Welcome! To book room, Select floor:  
   <%= select("storey", "id", Storey.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %></h5>
 
 </div>
@@ -25,7 +24,7 @@
   </thead>
 
 	<tbody id="available-rooms">
-		
+	<div class="container container-xs-height">	
 	<%- Storey.all.each do |storey| %> 
 		<%- storey.rooms.each do |room| %> 
 			<tr class='room' data-storey-id='<%= storey.id %>' style='display:'>
@@ -35,7 +34,7 @@
 			</tr> 
 		<%- end %> 
 	<%- end %>
-	      
+	      </div>
 	</tbody>
 </table>
 
