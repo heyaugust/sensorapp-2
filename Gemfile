@@ -35,6 +35,10 @@ gem "therubyracer"
 gem "less-rails"
 # Twitter bootstrap
 gem 'twitter-bootstrap-rails'
+
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 # Data Table 
 # gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 # Use ActiveModel has_secure_password

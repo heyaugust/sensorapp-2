@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
@@ -37,29 +38,38 @@ var selectRoom = function() {
 	//Hide rooms in other levels
 }
 
+//Countdown timer after room booked
 var countdown = function(minutes) {
-	var seconds = 60;
+	var seconds = 5;
 	var mins = minutes;
 	function tick() {
 		var counter = document.getElementById("timer");
 		var current_minutes = mins - 1;
 		seconds--;
-		counter.innerHTML = "The booking will expire in: " + current_minutes.toString() + ":"+ (seconds < 10 ? "0" : "") + String(seconds);;
-		if( seconds > 0 ) {
-            setTimeout(tick, 1000);
-        } else {
-             
-            if(mins > 1){
-                 
-               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst    
-               setTimeout(function () { countdown(mins - 1); }, 1000);
-                     
-            }
-        }
-    }
-    tick();
-}
+			counter.innerHTML = "The booking will expire in: " + current_minutes.toString() + ":"+ (seconds < 10 ? "0" : "") + String(seconds);;
+			if( seconds > 0 ) {
+	            setTimeout(tick, 1000);
+	        } else {
+	            if(mins > 1){
+	               // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst    
+	               setTimeout(function () { countdown(mins - 1); }, 1000);     
+	            } else {
+	            	roomExpire();
+	            }
+        	}
+    	}
+   		tick();
+	}
 
+
+//Alert room booking expiry
+var roomExpire = function() {
+	var r = confirm("Your booking has expired. Please try again.");
+	if (r == true) {
+   		window.location.reload(); 
+	} else {
+	}
+}
 //Sort rooms by pax
 var sortRoom = function() {
 	//When pax is selected
@@ -70,11 +80,8 @@ var sortRoom = function() {
 var bookRoom = function(clicked_id) {
 	$('.room').hide();
 	document.getElementById("available-rooms").innerHTML = "You have booked room: "+clicked_id;
-	countdown(5);
-	
+	countdown(1);
 }
-	//When button "book" is pressed
-	//Display "You have booked ('.room'). Enter by:
-	//Display countdown timer from 5mins
+
 
 
